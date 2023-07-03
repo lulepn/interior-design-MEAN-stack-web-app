@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    width: 100%;
+}
+body{
+    width: 99.5%;
+    display: flex;
+    justify-content: center;
+    flex-direction:row;
+    background-color: lightblue;
+    background-image: url("/assets/background.jpg");
+    border-radius: 25px;
+}
