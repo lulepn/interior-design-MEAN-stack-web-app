@@ -1,0 +1,86 @@
+<div class="all">
+   
+    <div class="container">
+        <div class="left"></div>
+        <div class="center2">
+            <div class="wrapper" style="height: 70px;">
+                <div style="width: 100%; height: 100%;display: flex;justify-content: center;">
+                 <label style="width: 50%;padding: 10px;font-weight: bold;">Адреса <br> {{objekat.adresa}}</label>
+                 <label style="width: 30%;padding: 10px;font-weight: bold;">Број просторија <br> {{objekat.brojProstorija}}</label>
+                 <label style="width: 20%;padding: 10px;font-weight: bold;">Квадратура <br> {{objekat.kvadratura}}</label>
+                </div>
+             </div>
+        </div>
+        <div class="right"></div>
+    </div>
+    <div style="height:20px;"></div>
+    <div class="container">
+        <div class="left">
+            <div class="wrapper" style="display: flex;flex-direction: column;align-items: center;" *ngIf="posao.brojRadnika == 0 && posao.zavrsen == 0">
+                <div class="row">
+                    <h2>Додајте раднике </h2>
+                </div>
+                <div class="row">
+                    <label> Број расположивих радника : </label>
+                    <label style="font-weight: bold;">{{agencija.brRadnika}}</label>
+                </div>
+                <div class="row">
+                    <input type="number" style="width: 50%;height: 80%;" placeholder="Број радника" [(ngModel)]="dodajRadnikeBr">
+                    <button class="mojbutton" (click)="azurirajBrojRadnika()" style="width:40%;">Додај</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="center">
+            <canvas #canvas1 height="400" width="400" style="background-color: wheat; border-style: solid;height: 100%; width: 100%;"></canvas>
+        </div>
+        <div class="right">
+            <div class="wrapper" *ngIf="posao.brojRadnika != 0">
+                <div class="row">
+                    <h3>Рад на просторијама</h3>
+                </div>
+                <div class="row">
+                    <label>Просторија 1 :</label>     
+                </div>
+                <div class="row">
+                    <button class="mojbutton" *ngIf="posao.prostorija1status == 0" (click)="zapocni(1)">Започни уређивање просторије</button>
+                </div>
+                <div class="row">
+                    <button class="mojbutton" *ngIf="posao.prostorija1status == 2" (click)="zavrsi(1)">Заврши са уређивањем просторије</button>
+                </div>
+                <div class="row">
+                    <label *ngIf="posao.prostorija1status == 1" style="font-weight: bold;">Завршeна</label>
+                </div>
+                <div class="row" *ngIf="objekat.brojProstorija > 1">
+                    <label>Просторија 2 :</label>
+                </div>
+                <div class="row">
+                    <button class="mojbutton" *ngIf="posao.prostorija2status == 0" (click)="zapocni(2)">Започни уређивање просторије</button>
+                </div>
+                <div class="row">
+                    <button class="mojbutton" *ngIf="posao.prostorija2status == 2" (click)="zavrsi(2)">Заврши са уређивањем просторије</button>
+                </div>
+                <div class="row">
+                    <label *ngIf="posao.prostorija2status == 1" style="font-weight: bold;">Завршeна</label>
+                </div>
+                <div class="row" *ngIf="objekat.brojProstorija > 2">
+                    <label>Просторија 3 :</label>
+                </div>
+                <div class="row">
+                    <button class="mojbutton" *ngIf="posao.prostorija3status == 0" (click)="zapocni(3)">Започни уређивање просторије</button>
+                </div>
+                <div class="row">
+                    <button class="mojbutton" *ngIf="posao.prostorija3status == 2" (click)="zavrsi(3)">Заврши са уређивањем просторије</button>
+                </div>
+                <div class="row">
+                    <label *ngIf="posao.prostorija3status == 1" style="font-weight: bold;">Завршeна</label>
+                </div>
+                <div class="row">
+                    <button class="mojbutton" (click)="zavrsiPosao()">Заврши посао</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="mojbutton" (click)="goBack()" style="width:20%;">Назад</button>
+</div>
+        

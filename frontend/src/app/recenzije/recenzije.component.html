@@ -1,0 +1,38 @@
+<div class="wrapper" *ngIf="vecOstavio == 0">
+    <div class="redtabele">
+        <label>Коментар :</label>
+    </div>
+    <div class="redtabele">
+        <textarea style="width: 100%;height: 70px;" [(ngModel)]="komentar"></textarea>
+    </div>
+    <div class="redtabele">
+        <label style="width: 30%;">Оцена (1-10) : </label>
+        <input  style="width: 10%;" type="number" [(ngModel)]="ocena">
+        <button style="width: 60%;" class="mojbutton" (click)="posaljiRecenziju()">Остави рецензију</button>
+    </div>
+    <div class="redtabele">
+        <button style="width: 100%;" class="mojbutton" (click)="goBack()">Назад на послове</button>
+    </div>
+</div>
+
+<div class="wrapper" *ngIf="vecOstavio == 1">
+    <div class="redtabele">
+        <label>Коментар :</label>
+    </div>
+    <div class="redtabele">
+        <textarea style="width: 100%;height: 70px;" [(ngModel)]="komentar"></textarea>
+    </div>
+    <div class="redtabele">
+        <label style="width: 30%;">Оцена (1-10) : </label>
+        <input  style="width: 10%;" type="number" [(ngModel)]="ocena">
+        <button style="width: 60%;" class="mojbutton" (click)="izmeniRecenziju()">Уреди рецензију</button>
+    </div>
+    <div class="redtabele">
+        <button style="width: 100%;" class="mojbutton" (click)="obrisiRecenziju()">Обриши рецензију</button>
+    </div>
+    <div class="redtabele">
+        <button style="width: 100%;" class="mojbutton" (click)="goBack()">Назад на послове</button>
+    </div>
+</div>
+
+

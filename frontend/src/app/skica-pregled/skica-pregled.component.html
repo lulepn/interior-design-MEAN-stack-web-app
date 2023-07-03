@@ -1,0 +1,108 @@
+<div class="wrapper">
+    <label class="form-row">{{objekat.tip}},   {{objekat.adresa}}</label>
+    <label class="form-row">{{objekat.kvadratura}}m2,   {{objekat.brojProstorija}} просторије</label>
+    <div class="form-row">
+        <button (click)="setPodaci()" *ngIf="podaci==0">Ажурирај податке</button>
+    </div>
+    <div *ngIf="podaci==1">
+        <div class="form-row">
+            <label>{{objekat.tip}}</label>
+            <input type="text" name="novitip" [(ngModel)]="noviTip">
+            <button (click)="azuriraj(1)">Промени</button>
+        </div>
+        <h4 class="form-row" style="color:green">{{messageA}}</h4>
+        <div class="form-row">
+            <label>{{objekat.adresa}}</label>
+            <input type="text" name="novaadresa" [(ngModel)]="novaAdresa">
+            <button (click)="azuriraj(2)">Промени</button>
+        </div>
+        <h4 class="form-row" style="color:green">{{messageB}}</h4>
+        <div class="form-row">
+            <label>{{objekat.kvadratura}}</label>
+            <input type="text" name="novakvadratura" [(ngModel)]="novaKvadratura">
+            <button (click)="azuriraj(3)">Промени</button>
+           
+        </div>
+        <h4 class="form-row" style="color:green">{{messageC}}</h4>
+        <div class="form-row">
+            <label>{{objekat.brojProstorija}}</label>
+            <input type="text" name="brojProstorijaNov" [(ngModel)]="noviBrojProstorija">
+            <button (click)="azuriraj(4)">Промени</button>
+        </div>
+        <h4 class="form-row" style="color:green">{{messageD}}</h4>
+        <div class="form-row">
+            <button (click)="unsetPodaci()">Сачувај</button>
+        </div>
+    </div>
+</div>
+<div style="height: 10px;"></div>
+
+<div class="container">
+    <div class="left">
+        <canvas #canvas1 height="400" width="400" style="background-color: wheat; border-style: solid;"></canvas>
+    </div>
+    <div class="right" *ngIf="mode == 1">
+        <div class="wrapper">
+            <div class="form-row">
+                <label for="html">Измена просторија</label>
+                <input type="radio" id="prostorije" name="crtanjeCega" value="1" [(ngModel)]="pvFlag">
+                <div style="width: 30px; height: 20px;"></div>
+                <label for="css">Измена врата</label>
+                <input type="radio" id="vrata" name="crtanjeCega" value="2" [(ngModel)]="pvFlag">
+            </div>
+            <div *ngIf="pvFlag == 1">
+                <div class="form-row">
+                    <label >Позиција просторије Х </label>
+                    <input type="text" name="xPos" [(ngModel)]="novaPozX">
+                </div>
+                <div class="form-row">
+                    <label >Позиција просторије Y </label>
+                    <input type="text" name="yPos" [(ngModel)]="novaPozY">
+                </div>
+                <div class="form-row">
+                    <label >Дужина просторије </label>
+                    <input type="text" name="duzina" [(ngModel)]="novaD">
+                </div>
+                <div class="form-row">
+                    <label >Ширина просторије </label>
+                    <input type="text" name="sirina" [(ngModel)]="novaS">
+                </div>
+                <div class="form-row">
+                    <button (click)="urediProstoriju()" >Преуреди просторију</button>
+                </div>
+            </div>
+            <div *ngIf="pvFlag == 2">
+                <div class="form-row">
+                    <label >Позиција врата Х </label>
+                    <input type="text" name="xPos" [(ngModel)]="novaPozX">
+                </div>
+                <div class="form-row">
+                    <label >Позиција врата Y </label>
+                    <input type="text" name="yPos" [(ngModel)]="novaPozY">
+                </div>
+                <div class="form-row">
+                    <label >Ширина врата </label>
+                    <input type="text" name="duzina" [(ngModel)]="novaS">
+                </div>
+                <div class="form-row">
+                    <label >Оријентација врата </label>
+                    <input type="text" name="sirina" [(ngModel)]="novOri">
+                </div>
+                <div class="form-row">
+                    <button (click)="urediVrata()" >Преуреди врата</button>
+                </div>
+            </div>
+            <div class="form-row">
+                <button (click)="azurirajSve()" >Сачувај измене</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="form-row">
+        <button (click)="goBack()">Назад</button>
+        <button (click)="obrisi()">Обриши објекат</button>
+        <button (click)="setMode()">Измени објекат</button>
+    </div>
+</div>

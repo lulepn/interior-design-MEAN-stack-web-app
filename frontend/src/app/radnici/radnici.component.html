@@ -1,0 +1,56 @@
+<div class="wrapper">
+    <div class="redtabele">
+        <button class="mojbutton" (click)="goBack()" style="width: 50%;">Назад</button>
+        <button class="mojbutton" (click)="logout()" style="width: 50%;">Одјавите се</button>
+        
+    </div>
+    <div class="redtabele">
+        <input type="number" placeholder="Број радних места" [(ngModel)]="brojRadnihMesta" style="width:40%">
+        <button class="mojbutton" (click)="zahtevZaRadnaMesta()" style="width: 50%;">Затражи нова радна места</button> 
+    </div>
+    <h2 class="redtabele">Сви радници - {{agencija.brRadnika}}/{{agencija.odobreno}} одобрених</h2>
+        <hr>
+        <table class="tabela" style="width: 100%;padding-left: 10px;">
+            <tr *ngFor="let n of radnici" >
+                <div class="redtabele">
+                    <td style="width: 10%;vertical-align: middle;">{{n.ime}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.prezime}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.email}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.telefon}}</td>  
+                    <td style="width: 20%;vertical-align: middle;">{{n.specijalizacija}}</td>  
+                    <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="obrisiRadnika(n)">Обриши</button></td>
+                    <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="azuriraj(n)">Ажурирај</button></td>  
+                </div>
+                <hr style="padding-bottom: 5px;">
+            </tr>
+        </table>
+        <hr>
+        <h2 class="redtabele" *ngIf="agencija.brRadnika < agencija.odobreno">Додај новог радника</h2>
+        <table class="tabela" *ngIf="agencija.brRadnika < agencija.odobreno">
+            <tr class="redtabele" >
+                <td style="width: 50%;">Име : </td>
+                <td style="width: 30%;"><input type="text" [(ngModel)]="noviRadnik.ime"></td>
+            </tr>
+            <tr class="redtabele" >
+                <td style="width: 50%;">Презиме : </td>
+                <td style="width: 30%;"><input type="text" [(ngModel)]="noviRadnik.prezime"></td>
+            </tr>
+            <tr class="redtabele" >
+                <td style="width: 50%;">И-мејл : </td>
+                <td style="width: 30%;"><input type="text" [(ngModel)]="noviRadnik.email"></td>
+            </tr>
+            <tr class="redtabele" >
+                <td style="width: 50%;">Телефон :</td>
+                <td style="width: 30%;"><input type="text" [(ngModel)]="noviRadnik.telefon"></td>
+            </tr>
+            <tr class="redtabele" >
+                <td style="width: 55%;">Специјализација : </td>
+                <td style="width: 25%;"><input type="text" [(ngModel)]="noviRadnik.specijalizacija"></td>
+            </tr>
+
+</table>
+        <div class="redtabele" *ngIf="agencija.brRadnika < agencija.odobreno">
+            <label></label>
+            <button class="mojbutton" (click)="dodajNovogRadnika()" style="width: 50%;">Додај новог радника</button>
+        </div>
+</div>

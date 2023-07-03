@@ -1,0 +1,56 @@
+
+<div class="container">
+    <div class="left">
+        <div class="wrapper" style="min-width: 400px;">
+            <div class="form-row">
+                <label >Клијент :</label>
+                <label >{{klijent.ime}} {{klijent.prezime}}</label>
+            </div>
+            <div class="form-row">
+                <label >И-мејл :</label>
+                <label >{{klijent.email}}</label>
+            </div>
+            <div class="form-row">
+                <label >Контакт телефон :</label>
+                <label >{{klijent.telefon}}</label>
+            </div>
+            <div class="form-row">
+                <input name="ponuda" type="number" [(ngModel)]="ponuda" style="width: 60%;">
+                <button (click)="prihvati(zahtev)" style="width: 40%;">Пошаљи понуду</button>
+            </div>
+            <div class="form-row">
+                <button (click)="odbij(zahtev)" style="width: 50%;">Одбиј захтев</button>
+                <button (click)="goBack()" style="width: 50%;">Назад на послове</button>
+            </div>
+            <div class="form-row">
+                <h3 [ngClass]="{
+                    'positive' : message == 'Понуда послата!', 
+                    'negative' : message == 'Захтев одбијен!'}">{{message}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="wrapper" style="min-width: 400px;">
+            <div class="form-row">
+                <label >Тип :</label>
+                <label >{{objekat.tip}}</label>
+            </div>
+            <div class="form-row">
+                <label >Адреса :</label>
+                <label >{{objekat.adresa}}</label>
+            </div>
+            <div class="form-row">
+                <label >Број просторија :</label>
+                <label >{{objekat.brojProstorija}}</label>
+            </div>
+            <div class="form-row">
+                <label >Квадратура :</label>
+                <label >{{objekat.kvadratura}}</label>
+            </div>
+        </div>
+        <div style="height: 10px;"></div>
+        <canvas #canvas1 height="400" width="400" style="background-color: wheat; border-style: solid;"></canvas>
+    </div>
+</div>
+
+

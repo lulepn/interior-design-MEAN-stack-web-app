@@ -1,0 +1,34 @@
+<div class="wrapper">
+    <table class="tabela">
+                <tr class="redtabele" >
+                    <td style="width: 50%;">И-мејл : {{radnik.email}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="radnik.email"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('email')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 50%;">Име : {{radnik.ime}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="radnik.ime"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('ime')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 55%;">Презиме : {{radnik.prezime}}</td>
+                    <td style="width: 25%;"><input type="text" [(ngModel)]="radnik.prezime"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('prezime')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 50%;">Телефон : {{radnik.telefon}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="radnik.telefon"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('telefon')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 50%;">Специјализација : {{radnik.specijalizacija}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="radnik.specijalizacija"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('specijalizacija')">Промени</button></td>
+                </tr>
+                <tr class="redtabele">
+                    <td style="width: 50%;"><button class="mojbutton" (click)="goBack()" *ngIf="mod=='0'">Назад</button></td>
+                    <td style="width: 50%;"><button class="mojbutton" (click)="goBackAdmin()" *ngIf="mod=='1'">Назад</button></td>
+                    <td style="width: 50%;"><button class="mojbutton" (click)="logout()">Одјави се</button></td>
+                </tr>
+    </table>
+</div>

@@ -1,0 +1,53 @@
+<div class="wrapper">
+    <table class="tabela">
+                <tr class="redtabele" >
+                    <td style="width: 50%;">Корисничко име : {{agencija.username}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="agencija.username"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('username')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 50%;">И-мејл : {{agencija.email}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="agencija.email"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('email')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 50%;">Лозинка : {{agencija.password}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="agencija.password"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('password')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 50%;">Назив : {{agencija.naziv}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="agencija.naziv"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('naziv')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 55%;">Опис : {{agencija.opis}}</td>
+                    <td style="width: 25%;"><input type="text" [(ngModel)]="agencija.opis"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('opis')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 50%;">Телефон : {{agencija.telefon}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="agencija.telefon"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('telefon')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 50%;">Адреса : {{agencija.adresa}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="agencija.adresa"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('adresa')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <td style="width: 50%;">Матични број : {{agencija.maticni}}</td>
+                    <td style="width: 30%;"><input type="text" [(ngModel)]="agencija.maticni"></td>
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('maticni')">Промени</button></td>
+                </tr>
+                <tr class="redtabele" >
+                    <img  class="form-row" [src]="sanitize('data:image/jpg;base64, ' + agencija.imageSrc)" width="100" height="100">
+                    <input type="file" accept=".jpg,.jpeg,.png" id="myFile" name="filename" (change)="onFileChange($event)">
+                    <td style="width: 20%;"><button class="mojbutton" (click)="azuriraj('imageSrc')">Промени</button></td>
+                </tr>
+                <tr class="redtabele">
+                    <td style="width: 50%;"><button class="mojbutton" (click)="goBack()">Назад</button></td>
+                    <td style="width: 50%;"><button class="mojbutton" (click)="logout()">Одјави се</button></td>
+                </tr>
+    </table>
+</div>

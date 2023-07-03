@@ -1,0 +1,38 @@
+.wrapper {
+    background-color: whitesmoke;
+    height: auto;
+    width: auto;
+    list-style-type: none;
+    padding: 0;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 25px;
+    background-image: url("/assets/paper.jpg");
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    flex-direction: column;
+}
+.redtabele {
+    min-width: 300px;
+    flex : 1;
+    justify-content: flex-start;
+    padding: .5em;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+}
+.kolonatabele {
+    padding: .5em 1em .5em 0;
+}
+.redtabele > td {
+    padding: .5em 1em .5em 0;
+}
+.mojbutton {
+    background: gray;
+    color: white;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black; 
+}
