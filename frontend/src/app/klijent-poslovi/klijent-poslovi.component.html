@@ -1,0 +1,70 @@
+
+<div class="wrapper">
+    <div style="width: 100%;" class="redtabele">
+        <button (click)="goBack()" class="mojbutton" style="width: 20%;">Назад</button>
+        <button (click)="logout" class="mojbutton" style="width: 20%;">Одјавите се</button>
+    </div>
+    <div class="redtabele">
+        <select class="mojselect" name="poslovizahtevi" [(ngModel)]="filter">
+            <option value="sve">Све</option>
+            <option value="zahtevi">Захтеви за сарадњу</option>
+            <option value="aktivniPoslovi">Активни послови</option>
+            <option value="zavrseniPoslovi">Завршени послови</option>
+        </select>
+    </div>
+    <table class="tabela" *ngIf="filter=='sve'|| filter=='zahtevi'">
+        <h2 style="font-weight: bold;padding-left: 15px;">Сви захтеви</h2>
+        <hr>
+        <tr *ngFor="let n of zahtevi" class="redtabele"> 
+                <div [ngClass]="{
+                    'positive' : n.prihvacen == 1,
+                    'negative' : n.prihvacen == 2,
+                    'ok' : n.prihvacen == 0
+                 }">
+                    <td style="width: 25%;">{{n.adresaObj}}</td>
+                    <td style="width: 30%;">{{formatirajDatum(n.datumOd)}}-{{formatirajDatum(n.datumDo)}}</td> 
+                    <td class="naziv" style="width: 8%;">{{n.agencija}}</td>
+                    <td class="naziv" style="width: 10%;">{{n.ponuda}}</td>
+                    <td class="naziv" style="width: 15%;">{{formatirajStatus(n.prihvacen)}}</td>
+                    <td style="width: 30%;">
+                        <button *ngIf="n.prihvacen == 1" class="mojbutton" style="width: 100%" (click)="prihvati(n)">
+                            Прихвати понуду
+                        </button>
+                        <button *ngIf="n.prihvacen == 2" class="mojbutton" style="width: 100%" (click)="odbij(n)">
+                            Обриши захтев
+                        </button>
+                        <button *ngIf="n.prihvacen == 0" class="mojbutton" style="width: 100%">Чека се потврда</button>
+                    </td> 
+                </div>
+                <hr>
+        </tr>
+    </table>
+    <div style="height: 10px;"></div>
+    <table class="tabela" *ngIf="filter=='aktivniPoslovi' || filter=='sve'">
+        <h2 style="color: darkgreen;font-weight: bold;padding-left: 15px;">Активни послови</h2>
+        <hr>
+        <tr *ngFor="let n of aktivni" class="redtabele"> 
+            <div>
+                <td style="width: 40%;">{{n.adresaObj}}</td>
+                <td style="width: 32%;">{{formatirajDatum(n.datumOd)}}-{{formatirajDatum(n.datumDo)}}</td> 
+                <td class="naziv" style="width: 8%;">{{n.agencija}}</td>
+                <td class="naziv" style="width: 10%;">{{n.ugovorenaCena}}</td>
+                <td style="width: 25%;"><button class="mojbutton" (click)="pregledajPosao(n)">Прегледај</button></td>
+            </div>
+            <hr>
+    </table>
+    <div style="height: 10px;"></div>
+    <table class="tabela" *ngIf="filter=='zavrseniPoslovi' || filter=='sve'">
+        <h2 style="color: blue;font-weight: bold;padding-left: 15px;">Завршени послови</h2>
+        <hr>
+        <tr *ngFor="let n of zavrseni" class="redtabele"> 
+            <div>
+                <td style="width: 40%;">{{n.adresaObj}}</td>
+                <td style="width: 32%;">{{formatirajDatum(n.datumOd)}}-{{formatirajDatum(n.datumDo)}}</td> 
+                <td class="naziv" style="width: 8%;">{{n.agencija}}</td>
+                <td class="naziv" style="width: 10%;">{{n.ugovorenaCena}}</td>
+                <td style="width: 25%;"><button class="mojbutton" (click)="recenzija(n)">Остави рецензију</button></td>
+            </div>
+            <hr>
+    </table>
+</div>

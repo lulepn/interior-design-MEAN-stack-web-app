@@ -1,0 +1,73 @@
+<form>
+    <ul class="wrapper">
+      <li class="form-row">
+        <h2 class="form-row">Унесите податке</h2>
+      </li>
+      <li class="form-row">
+        <label>Корисничко име : </label>
+        <input type="text" name="username" [(ngModel)]="username" required>
+      </li>
+      <li class="form-row">
+        <label>Лозинка : </label>
+        <input type="password" name="password" [(ngModel)]="password" required>
+      </li>
+      <li class="form-row">
+        <label >Потврда лозинке : </label>
+        <input type="password" name="passwordAgain" [(ngModel)]="passwordAgain" required>
+      </li>
+      <li class="form-row">
+        <label>Контакт телефон : </label>
+        <input type="number" name="tel" [(ngModel)]="telefon" required>
+      </li>
+      <li class="form-row">
+        <label>И-мејл : </label>
+        <input type="text" name="email" [(ngModel)]="email" required>
+      </li>
+      <li class="form-row">
+        <label>Назив агенције : </label>
+        <input type="text" name="naziv" [(ngModel)]="naziv" required>
+      </li>
+      <li class="form-row">
+        <label>Држава : </label>
+        <input type="text" name="drzava" [(ngModel)]="drzava" required>
+      </li>
+      <li class="form-row">
+        <label>Град : </label>
+        <input type="text" name="grad" [(ngModel)]="grad" required>
+      </li>
+      <li class="form-row">
+        <label>Улица : </label>
+        <input type="text" name="ulica" [(ngModel)]="ulica" required>
+      </li>
+      <li class="form-row">
+        <label>Број : </label>
+        <input type="number" name="broj" [(ngModel)]="broj" required>
+      </li>
+      <li class="form-row">
+        <label>Матични број : </label>
+        <input type="number" name="maticni" [(ngModel)]="maticni" required>
+      </li>
+      <li class="form-row">
+        <label>Опис : </label>
+        <textarea name="opis" [(ngModel)]="opis" style="height: 75px;" style="width: 275px;" required></textarea>
+      </li>
+      <li class="form-row">
+        <label>Логотип : </label>
+        <input type="file" accept=".jpg,.jpeg,.png" id="myFile" name="filename" (change)="onFileChange($event)">
+      </li>
+      <li class="form-row">
+        <button name="goBack" (click)="goBack()" *ngIf="mod == '0'">Назад</button>
+        <button name="goBack" (click)="goBackAdmin()" *ngIf="mod == '1'">Назад</button>
+        <button type="submit" name="reg" (click)="register()">Региструј се</button>
+      </li>
+      
+    </ul>
+</form>
+
+<h4 style="color:green" *ngIf="message=='Успешно сте се регистровали!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Регистрација неуспешна.'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Забрањено корисничко име или/и и-мејл!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Лозинке се не поклапају!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Лозинка не сме бити дужа од 12 карактера!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Лозинка не сме бити краћа од 7 карактера!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Лозинка мора да садржи бар једно велико слово, специјалан знак и број!'">{{message}}</h4>

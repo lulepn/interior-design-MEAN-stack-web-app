@@ -1,0 +1,95 @@
+.row {
+    display: flex;
+    height: 100px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: .5em;
+    border: 3px; border-top: 0px; border-left: 0px; border-right: 0px;
+    border-style: ridge;
+    border-radius: 25px;
+    border-color: black;
+} 
+.wrapper {
+    background-color: whitesmoke;
+    height: auto;
+    width: 1110px;
+    list-style-type: none;
+    padding: 0;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black; 
+    border-radius: 25px;
+    background-image: url("/assets/paper.jpg");
+}
+.wrapper2 {
+    background-color: whitesmoke;
+    height: auto;
+    width: 697px;
+    list-style-type: none;
+    padding: 0;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black; 
+    border-radius: 25px;
+    background-image: url("/assets/paper.jpg");
+}
+.form-row > label {
+    padding: .5em 1em .5em 0;
+    font-weight: bold;
+    flex: 1;
+}
+.form-row {
+    display: flex;
+    justify-content: flex-start;
+    padding: .5em;
+}
+.mojInput {
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    width: 380px;
+}
+.mojbutton {
+    padding: .5em;
+    margin: auto;
+    height: 30px;
+    width: 150px;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    background: gray;
+    color: white;
+}
+.mojbutton2 {
+    padding: .5em;
+    margin: auto;
+    height: 30px;
+    width: 380px;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    background: gray;
+    color: white;
+}
+.mojSelect1 {
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    margin: auto;
+    height: 30px; 
+    width: 155px;
+    background: gray;
+    color: white;
+}
+.mojSelect2 {
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    margin: auto;
+    height: 30px; 
+    width: 150px;
+    background: gray;
+    color: white;
+}

@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <h2 class="form-row">Ваш профил</h2>
+    <hr>
+    <div class="container">
+        <div class="left">
+            <label class="form-row" style="font-size: 25px;">{{agencija.naziv}}</label> 
+            <label class="form-row">{{agencija.email}}</label>
+            <label class="form-row">{{agencija.telefon}}</label>
+        </div>
+        <div>
+            <img  class="form-row" [src]="sanitize('data:image/jpg;base64, ' + agencija.imageSrc)" width="100" height="100">
+        </div>
+    </div>
+    <label class="form-row">{{agencija.adresa}}</label>
+    <label class="form-row">{{agencija.opis}}</label>
+    <hr>
+    <div class="form-row">
+        <label>Стара лозинка : </label>
+        <input type="password" id="oldPass" name="oldPass" [(ngModel)]="oldPass" required>
+    </div>
+    <div class="form-row">
+        <label>Нова лозинка : </label>
+        <input type="password" id="password" name="pass" [(ngModel)]="newPass" required>
+    </div>
+    <div class="form-row">
+        <label>Потврдите лозинку : </label>
+        <input type="password" id="passwordAgain" name="passAgain" [(ngModel)]="newPassAgain" required>
+    </div>
+    <div class="form-row">
+        <button  name="goBack" type="submit" (click)="updatePassword()" >Промени лозинку</button>
+    </div>
+    <div class="form-row">
+        <h4 [ngClass]="{
+            'positive' : message == 'Лозинка промењена!',
+            'negative' : message == 'Погрешна лозинка!',
+            'negative2' : message == 'Лозинке се не подударају!'
+         }">{{message}}</h4>
+    </div>
+    
+    <hr>
+    <div class="form-row">
+        <button name="goBack" (click)="goBack()">Назад</button>
+        <button name="uredi" (click)="uredi()">Уреди профил</button>
+        <button name="logout" (click)="logout()">Одјавите се</button>
+    </div>
+</div>

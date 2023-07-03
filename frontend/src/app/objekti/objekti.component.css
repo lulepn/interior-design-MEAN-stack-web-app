@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+.left {
+    flex: 1;
+    padding: 5px;
+}
+.right {
+    flex: 2;
+    padding: 5px;
+}
+.wrapper {
+    background-color: whitesmoke;
+    height: auto;
+    width: 825px;
+    list-style-type: none;
+    padding: 0;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 25px;
+    background-image: url("/assets/paper.jpg");
+}
+.form-row {
+    display: flex;
+    justify-content: flex-start;
+    padding: .5em;
+    font-weight: bold;
+}
+.form-row2 {
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+    font-weight: bold;
+}
+.form-row3 {
+    display: flex;
+    justify-content: center;
+    padding: .5em;
+    font-weight: bold;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+}
+.form-row > label {
+    padding: .5em 1em .5em 0;
+    font-weight: bold;
+    justify-content: flex-start;
+    flex : 1;
+}
+.form-row3 > label {
+    padding: .5em 1em .5em 0;
+    font-weight: bold;
+    width: 150px;
+    flex : 1;
+}
+.form-row > h2 {
+    padding: .5em 1em .5em 0;
+    margin: auto;
+}
+.form-row > input,
+.form-row > button {
+    padding: .5em;
+    margin: auto;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+}
+.form-row > button {
+   background: gray;
+   color: white;
+}
+.form-row3 > button {
+    padding: .5em;
+    margin: auto;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+}
+.form-row3 > button {
+   background: gray;
+   color: white;
+}
+.form-row2 > button {
+    padding: .5em;
+    margin: auto;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+}
+.form-row2 > button {
+   background: gray;
+   color: white;
+}
+.positive {
+    color: green;
+    font-weight: bold;
+}
+
+.negative {
+    color: red;
+    font-weight: bold;
+}

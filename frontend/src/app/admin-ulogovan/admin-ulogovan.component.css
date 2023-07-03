@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+.left {
+    flex: 1;
+    padding: 5px;
+}
+.right {
+    flex: 2;
+    padding: 5px;
+}
+.wrapper {
+    min-width: 820px;
+    background-color: whitesmoke;
+    height: auto;
+    width: auto;
+    list-style-type: none;
+    padding: 0;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 25px;
+    background-image: url("/assets/paper.jpg");
+}
+.tabela {
+    min-width: 200px;
+}
+.redtabele {
+    min-width: 200px;
+    justify-content: flex-start;
+    padding: .5em;
+    padding-left: 25px;
+    font-weight: bold;
+}
+.kolonatabele {
+    padding: .5em 1em .5em 0;
+}
+.redtabele > td {
+    padding: .5em 1em .5em 0;
+}
+.mojbutton {
+    background: gray;
+    color: white;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black; 
+}
+.mojselect {
+    background: gray;
+    color: white;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black; 
+}
+.mojinput {
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+}
+.positive {
+    padding: .5em 1em .5em 0;
+    color: green;
+    font-weight: bold;
+}
+.negative {
+    padding: .5em 1em .5em 0;
+    color: red;
+    font-weight: bold;
+}
+.ok {
+    padding: .5em 1em .5em 0;
+    font-weight: bold;
+}

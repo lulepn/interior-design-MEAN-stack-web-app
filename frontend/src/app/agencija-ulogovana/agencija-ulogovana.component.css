@@ -1,0 +1,67 @@
+.wrapper {
+    background-color: whitesmoke;
+    height: auto;
+    width: auto;
+    list-style-type: none; 
+    padding: 0;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 25px;
+    background-image: url("/assets/paper.jpg");
+}
+.form-row {
+    padding: .5em;
+    display: flex;
+    justify-content: center;
+}
+.form-row > label {
+    padding: .5em 1em .5em 0;
+    font-weight: bold;
+}
+.form-row > input {
+    flex: 2;
+}
+.form-row > h2 {
+    padding: .5em 1em .5em 0;
+    margin: auto;
+}
+.form-row > input,
+.form-row > textarea {
+    padding: .5em;
+    margin: auto;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+}
+.mojbutton {
+    display: flex;
+    padding: .5em;
+    margin: auto;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    width: 370px;
+    height: 50px;
+    justify-content: center;
+    font-weight: bolder;
+    text-align: center;
+    align-items: center;
+    background: gray;
+    color: white;
+
+}
+.mojbutton2 {
+    display: flex;
+    padding: .5em;
+    margin: auto;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    width: 250px;
+    height: 35px;
+    font-weight: bolder;
+    justify-content: center;
+    background: gray;
+    color: white;
+}

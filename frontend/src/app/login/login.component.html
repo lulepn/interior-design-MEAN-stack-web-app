@@ -1,0 +1,36 @@
+<form>
+    <ul class="wrapper">
+      <li class="form-row">
+        <h2 class="form-row">Пријављивање у систем</h2>
+      </li>
+      <li class="form-row">
+        <label>Корисничко име : </label>
+        <input type="text" id="name" name="usern" [(ngModel)]="username" required>
+      </li>
+      <li class="form-row">
+        <label>Лозинка : </label>
+        <input type="password" id="password" name="pass" [(ngModel)]="password" required>
+      </li>
+      <li class="form-row">
+        <label>Клијент</label>
+        <input type="radio" id="html" name="klijentagencija" value="1" [(ngModel)]="tip">
+        <label>Агенција</label>
+        <input type="radio" id="css" name="klijentagencija" value="2" [(ngModel)]="tip">
+        <button type="submit" (click)="login()">Пријави се</button>
+      </li>
+      <hr>
+      <li class="form-row">
+        <label style="font-size:16px;">Немате налог?</label>
+      </li>
+      <li class="form-row">
+        <button type="button" (click)="registerA()">Региструјте се као агенција</button>  
+        <button type="button" (click)="registerK()">Региструјте се као клијент</button>
+      </li>
+      <li class="form-row">
+        <button type="button" (click)="noregister()">Наставите без регистрације</button>  
+      </li>
+      <hr>
+      <h4 class="form-row" style="color:red; justify-content: flex-start;">{{message}}</h4>
+    </ul>
+    
+</form>

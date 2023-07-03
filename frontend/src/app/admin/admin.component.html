@@ -1,0 +1,18 @@
+<form>
+    <ul class="wrapper">
+      <li class="form-row">
+        <h2 class="form-row">Пријављивање у систем  (Админ)</h2>
+      </li>
+      <li class="form-row">
+        <label >Корисничко име : </label>
+        <input type="text" name="username" [(ngModel)]="username" required>
+      </li>
+      <li class="form-row">
+        <label >Лозинка : </label>
+        <input type="password" name="password" [(ngModel)]="password" required>
+      </li>
+      <li class="form-row">
+        <button type="submit" (click)="login()">Пријави се</button>
+      </li>
+    </ul>
+</form>

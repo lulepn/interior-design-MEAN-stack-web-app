@@ -1,0 +1,84 @@
+.wrapper {
+    background-color: whitesmoke;
+    height: auto;
+    width: auto;
+    list-style-type: none;
+    padding: 0;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 25px;
+    background-image: url("/assets/paper.jpg");
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.left {
+    flex: 1;
+}
+.right {
+    flex: 2;
+    
+    padding: .5em;
+}
+.form-row {
+    display: flex;
+    justify-content: flex-start;
+    padding: .5em;
+    font-weight: bold;
+}
+.form-row > label {
+    padding: .5em 1em .5em 0;
+    font-weight: bold;
+    flex : 1;
+}
+.form-row > h2 {
+    padding: .5em 1em .5em 0;
+    margin: auto;
+}
+.form-row > input,
+.form-row > button {
+    padding: .5em;
+    margin: auto;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+}
+.form-row > button {
+   background: gray;
+   color: white;
+}
+
+.mojSelect1 {
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    margin: auto;
+    height: 30px; 
+    width: 180px;
+    background: gray;
+    color: white;
+}
+.mojButton {
+    width: 180px;
+    background: gray;
+   color: white;
+   border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+}
+.positive {
+    color: green;
+    font-weight: bold;
+}
+
+.negative {
+    color: red;
+    font-weight: bold;
+}
+
+.negative2 {
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,33 @@
+<div class="wrapper">
+    <div class="redtabele">
+        <button class="mojbutton" (click)="goBack()" style="width: 50%;">Назад</button>
+        <button class="mojbutton" (click)="logout()" style="width: 50%;">Одјавите се</button>
+    </div>
+    <hr>
+    <h2 class="redtabele" >Додај новог радника</h2>
+    <table class="tabela" >
+        <tr class="redtabele" >
+            <td style="width: 50%;">Име : </td>
+            <td style="width: 30%;"><input type="text" [(ngModel)]="noviRadnik.ime"></td>
+        </tr>
+        <tr class="redtabele" >
+            <td style="width: 50%;">Презиме : </td>
+            <td style="width: 30%;"><input type="text" [(ngModel)]="noviRadnik.prezime"></td>
+        </tr>
+        <tr class="redtabele" >
+            <td style="width: 50%;">И-мејл : </td>
+            <td style="width: 30%;"><input type="text" [(ngModel)]="noviRadnik.email"></td>
+        </tr>
+        <tr class="redtabele" >
+            <td style="width: 50%;">Телефон :</td>
+            <td style="width: 30%;"><input type="text" [(ngModel)]="noviRadnik.telefon"></td>
+        </tr>
+        <tr class="redtabele" >
+            <td style="width: 55%;">Специјализација : </td>
+            <td style="width: 25%;"><input type="text" [(ngModel)]="noviRadnik.specijalizacija"></td>
+        </tr>
+</table>
+        <div class="redtabele">
+            <button class="mojbutton" (click)="dodajNovogRadnika()" style="width: 50%;">Додај новог радника</button>
+        </div>
+</div>

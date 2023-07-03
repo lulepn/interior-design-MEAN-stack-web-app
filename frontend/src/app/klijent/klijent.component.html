@@ -1,0 +1,53 @@
+<form>
+    <ul class="wrapper">
+      <li class="form-row">
+        <h2 class="form-row">Унесите податке</h2>
+      </li>
+      <li class="form-row">
+        <label>Име : </label>
+        <input name = "firstName" type="text" [(ngModel)]="firstName" required>
+      </li>
+      <li class="form-row">
+        <label>Презиме : </label>
+        <input name = "lastName" type="text" [(ngModel)]="lastName" required>
+      </li>
+      <li class="form-row">
+        <label>Корисничко име : </label>
+        <input name = "username" type="text" [(ngModel)]="username" required>
+      </li>
+      <li class="form-row">
+        <label>Лозинка : </label>
+        <input name = "password" type="password" [(ngModel)]="password" required>
+      </li>
+      <li class="form-row">
+        <label>Потврда лозинке : </label>
+        <input name = "passwordAgain" type="password" [(ngModel)]="passwordAgain" required>
+      </li>
+      <li class="form-row">
+        <label>Контакт телефон : </label>
+        <input name = "telefon" type="number" [(ngModel)]="telefon" required>
+      </li>
+      <li class="form-row">
+        <label>И-мејл адреса : </label>
+        <input name = "email" type="text" [(ngModel)]="email" required>
+      </li>
+      <li class="form-row">
+        <label>Профилна слика : </label>
+        <input type="file" accept=".jpg,.jpeg,.png" id="myFile" name="filename" (change)="onFileChange($event)">
+      </li> 
+      <li class="form-row">
+        <button name="goBack" (click)="goBack()" *ngIf="mod == '0'">Назад</button>
+        <button name="goBack" (click)="goBackAdmin()" *ngIf="mod == '1'">Назад</button>
+        <button type="submit" name="reg" (click)="register()">Региструј се</button>
+      </li>
+      
+    </ul>
+</form>
+
+<h4 style="color:green" *ngIf="message=='Успешно сте се регистровали!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Регистрација неуспешна.'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Забрањено корисничко име или/и и-мејл!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Лозинке се не поклапају!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Лозинка не сме бити дужа од 12 карактера!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Лозинка не сме бити краћа од 7 карактера!'">{{message}}</h4>
+<h4 style="color:red" *ngIf="message=='Лозинка мора да садржи бар једно велико слово, специјалан знак и број!'">{{message}}</h4>

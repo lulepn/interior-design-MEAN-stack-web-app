@@ -1,0 +1,40 @@
+<div class="wrapper2">
+    <div class="form-row">
+        <input class="mojInput" placeholder="Назив и/или адреса агенције" type="text" 
+        name="search" style="width: 370px;" [(ngModel)]="searchParam">
+        <select class="mojSelect1" name="pretragra" id="pretraga" [(ngModel)]="nana">
+            <option value=1>По називу</option>
+            <option value=2>По адреси</option>
+            <option value=3>По називу и адреси</option>
+        </select>
+        <button class="mojbutton" (click)="search()">Пронађи агенције</button>
+    </div>
+    <div class="form-row">
+        <button class="mojbutton2" (click)="sort()">Сортирај агенције</button>
+        <select class="mojSelect1" name="sortiranje" id="sortiranje"  [(ngModel)]="nanaSort">
+            <option value=1>По називу</option>
+            <option value=2>По адреси</option>
+            <option value=3>По називу и адреси</option>
+        </select>
+        <select class="mojSelect2" name="sortiranjeAscDesc" id="sortiranjeAscDesc" [(ngModel)]="ascdesc">
+            <option value=1>Растуће</option>
+            <option value=2>Опадајуће</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <button class="mojbutton2" (click)="goBack()" *ngIf="mode == 'neulogovan'">Назад на почетну страну</button>
+        <button class="mojbutton2" (click)="goBack()" *ngIf="mode == 'ulogovan'">Назад на главни мени</button>
+    </div> 
+    
+</div>
+<div style="height: 10px;"></div>
+<table class="wrapper">
+    <tr *ngFor="let n of agencije" class="row">
+        <td style="flex-basis: 120px"><img [src]="sanitize('data:image/jpg;base64, ' + n.imageSrc)" width="100" height="100"></td>
+        <td class="naziv" style="flex-basis: 200px">{{n.naziv}}</td>
+        <td style="flex-basis: 800px">{{n.opis}}</td>   
+        <td style="flex-basis: 100px">
+            <button class="mojbutton" (click)="pregledAgencije(n.username)"> Погледај агенцију </button>
+        </td>
+    </tr>
+</table>

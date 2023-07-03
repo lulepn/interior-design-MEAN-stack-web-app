@@ -1,0 +1,42 @@
+.wrapper {
+    background-color: whitesmoke;
+    height: 790px;
+    width: 462px;
+    list-style-type: none;
+    padding: 0;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 25px;
+    background-image: url("/assets/paper.jpg");
+}
+.form-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: .5em;
+}
+.form-row > label {
+    padding: .5em 1em .5em 0;
+    font-weight: bold;
+    flex: 1;
+}
+.form-row > input {
+    flex: 2;
+}
+.form-row > h2 {
+    padding: .5em 1em .5em 0;
+    margin: auto;
+}
+.form-row > input,
+.form-row > button,
+.form-row > textarea {
+    padding: .5em;
+    margin: auto;
+    border-style: ridge;
+    border-width: 3px;
+    border-color: black;
+}
+.form-row > button {
+   background: gray;
+   color: white;
+}

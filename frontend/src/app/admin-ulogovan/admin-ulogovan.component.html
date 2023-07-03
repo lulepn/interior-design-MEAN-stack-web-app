@@ -1,0 +1,165 @@
+<div class="wrapper">
+    <table class="tabela" style="width: 100%;padding-left: 10px;">
+        <tr>
+            <div class="redtabele">
+                <td style="min-width: 40%;vertical-align: middle;"><h2 >Добродошли {{username}}!</h2></td>
+                <td style="min-width: 60%;vertical-align: middle;"><button class="mojbutton" (click)="logout()">Одјави се</button></td>
+            </div>
+        </tr>
+    </table>
+    <hr>
+    <div class="redtabele">
+        <select class="mojselect" [(ngModel)]="mod">
+            <option value="1">Захтеви за регистрацију</option>
+            <option value="2">Клијенти</option>
+            <option value="3">Агенције</option>
+            <option value="4">Послови</option>
+            <option value="5">Додај клијента</option>
+            <option value="6">Додај агенцију</option>
+            <option value="7">Захтеви за отказивање</option>
+            <option value="8">Захтеви за нова радна места</option>
+        </select>
+    </div>
+    <div  *ngIf="mod==1">
+        <h2 class="redtabele">Захтеви за регистрацију</h2>
+        <hr>
+        <h3 class="redtabele">Од клијената</h3>
+        <table class="tabela" style="width: 100%;padding-left: 10px;">
+            <tr *ngFor="let n of zahteviK" >
+                <div class="redtabele">
+                    <td style="width: 10%;vertical-align: middle;"><img [src]="sanitize('data:image/jpg;base64, ' + n.imageSrc)" width="100" height="100"></td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.username}}</td>
+                    <td style="width: 30%;vertical-align: middle;">{{n.email}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.ime}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.prezime}}</td>   
+                    <td style="width: 15%;vertical-align: middle;"><button class="mojbutton" (click)="potvrdiK(n)">Потврди</button></td>
+                    <td style="width: 15%;vertical-align: middle;"><button class="mojbutton" (click)="odbijK(n)">Одбиј</button></td>
+                </div>
+                <hr style="padding-bottom: 5px;">
+            </tr>
+        </table>
+        <h3 class="redtabele">Од агенција</h3>
+        <table class="tabela" style="width: 100%;padding-left: 10px;">
+            <tr *ngFor="let n of zahteviA" >
+                <div class="redtabele">
+                    <td style="width: 10%;vertical-align: middle;"><img [src]="sanitize('data:image/jpg;base64, ' + n.imageSrc)" width="100" height="100"></td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.username}}</td>
+                    <td style="width: 30%;vertical-align: middle;">{{n.email}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.naziv}}</td> 
+                   
+                    <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="potvrdiA(n)">Потврди</button></td>
+                    <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="odbijA(n)">Одбиј</button></td>
+                </div>
+                <hr style="padding-bottom: 5px;">
+            </tr>
+            
+        </table>
+    </div>
+    <div  *ngIf="mod==2">
+        <h2 class="redtabele">Сви клијенти</h2>
+        <hr>
+        <table class="tabela" style="width: 100%;padding-left: 10px;">
+            <tr *ngFor="let n of klijenti" >
+                <div class="redtabele">
+                    <td style="width: 10%;vertical-align: middle;"><img [src]="sanitize('data:image/jpg;base64, ' + n.imageSrc)" width="100" height="100"></td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.username}}</td>  
+                    <td style="width: 10%;vertical-align: middle;">{{n.ime}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.prezime}}</td>   
+                    <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="obrisiK(n)">Обриши</button></td>
+                    <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="azurirajK(n)">Ажурирај</button></td>
+                </div>
+                <hr style="padding-bottom: 5px;">
+            </tr>
+            
+        </table>
+    </div>
+    <div  *ngIf="mod==3">
+        <h2 class="redtabele">Све агенције</h2>
+        <hr>
+        <table class="tabela" style="width: 100%;padding-left: 10px;">
+            <tr *ngFor="let n of agencije" >
+                <div class="redtabele">
+                    <td style="width: 10%;vertical-align: middle;"><img [src]="sanitize('data:image/jpg;base64, ' + n.imageSrc)" width="100" height="100"></td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.username}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.naziv}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.opis}}</td>  
+                    <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="obrisiA(n)">Обриши</button></td>
+                    <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="azurirajA(n)">Ажурирај</button></td> 
+                    <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="radnici(n)">Радници</button></td> 
+                </div>
+                <hr style="padding-bottom: 5px;">
+            </tr>
+            
+        </table>
+    </div>
+    <div  *ngIf="mod==4">
+        <h2 class="redtabele">Сви послови</h2>
+        <hr>
+        <table class="tabela" style="width: 100%;padding-left: 10px;">
+            <tr *ngFor="let n of poslovi" >
+                <div class="redtabele">
+                    <td style="width: 10%;vertical-align: middle;">{{n.usernameObj}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.agencija}}</td>   
+                    <td style="width: 30%;vertical-align: middle;">{{n.adresaObj}}</td>  
+                    <td style="width: 10%;vertical-align: middle;">{{n.ugovorenaCena}}</td>    
+                </div>
+                <hr style="padding-bottom: 5px;">
+            </tr>
+            
+        </table>
+    </div>
+    <div  *ngIf="mod==5">
+        <h2 class="redtabele">Додај клијента</h2>
+        <hr>
+        <table class="tabela" style="padding: 25px;">
+            <tr class="redtabele">
+                <button class="mojbutton" (click)="dodajKlijenta()">Додај новог клијента</button>
+            </tr>
+        </table>
+    </div>
+    <div  *ngIf="mod==6">
+        <h2 class="redtabele">Додај агенцију</h2>
+        <hr>
+        <table class="tabela" style="padding: 25px;">
+            <tr class="redtabele">
+                <button class="mojbutton" (click)="dodajAgenciju()">Додај нову агенцију</button>
+            </tr>
+        </table>
+
+    </div>
+    <div  *ngIf="mod==7">
+        <h2 class="redtabele">Захтеви за отказивање</h2>
+        <hr>
+        <table class="tabela" style="width: 100%;padding-left: 10px;">
+            <tr *ngFor="let n of otkazivanja" >
+                <div class="redtabele">
+                    <td style="width: 10%;vertical-align: middle;">{{n.usernameObj}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.agencija}}</td>   
+                    <td style="width: 30%;vertical-align: middle;">{{n.adresaObj}}</td>  
+                <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="odbijOtkazivanje(n)">Одбиј</button></td>  
+            <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="prihvatiOtkazivanje(n)">Прихвати</button> </td>    
+                </div>
+                <hr style="padding-bottom: 5px;">
+            </tr>
+            
+        </table>
+
+    </div>
+    <div  *ngIf="mod==8">
+        <h2 class="redtabele">Захтеви за нова радна места</h2>
+        <hr>
+        <table class="tabela" style="width: 100%;padding-left: 10px;">
+            <tr *ngFor="let n of radnamesta" >
+                <div class="redtabele">
+                    <td style="width: 10%;vertical-align: middle;">{{n.agencija}}</td>
+                    <td style="width: 10%;vertical-align: middle;">{{n.broj}}</td>    
+                <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="odbijZahtev(n)">Одбиј</button></td>  
+            <td style="width: 20%;vertical-align: middle;"><button class="mojbutton" (click)="prihvatiZahtev(n)" >Прихвати</button></td>    
+                </div>
+                <hr style="padding-bottom: 5px;">
+            </tr>
+            
+        </table>
+
+    </div>
+</div>

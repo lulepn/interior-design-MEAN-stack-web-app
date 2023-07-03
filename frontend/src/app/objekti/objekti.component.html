@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="wrapper">
+        <h2 class="form-row2" *ngIf="dodavanjeObjekta == false">ВАШИ ОБЈЕКТИ :</h2>
+        <table *ngIf="dodavanjeObjekta == false">
+            <td class="form-row">
+                <label >Тип</label>
+                <label >Адреса</label>
+                <label >Број просторија</label>
+                <label >Квадратура</label>
+                <label>Преглед и уређивање скице</label>
+            </td>
+            <tr *ngFor="let n of objekti" class="form-row">
+                <td class="form-row3">
+                    <label >{{n.tip}}</label>
+                    <label >{{n.adresa}}</label>
+                    <label >{{n.brojProstorija}}</label>
+                    <label >{{n.kvadratura}}</label>
+                    <button (click)="pregledSkice(n.adresa)">Преглед и уређивање скице</button>
+                </td>
+            </tr>
+        </table>  
+        <div class="form-row2" >
+            <button (click)="goBack()">Назад на главни мени</button>
+            <button (click)="logout()">Одјавите се</button>
+            <button *ngIf="dodavanjeObjekta == false" (click)="setDodavanjeObjekta()">Сакриј постојеће објекте</button>
+            <button *ngIf="dodavanjeObjekta == true" (click)="unsetDodavanjeObjekta()">Прикажи постојеће објекте</button>
+        </div>
+    </div>
+</div>
+
+<div class="container" >
+    <div class="left">
+        <div class="wrapper" style="width: 410px;">
+            <h2 class="form-row">Додавање новог објекта</h2>
+            <div class="form-row">
+                <label>Тип објекта : </label>
+                <input type="text" name="tip" [(ngModel)]="objekat.tip">
+            </div>
+            <div class="form-row">
+                <label>Адреса објекта : </label>
+                <input type="text" name="adresa" [(ngModel)]="objekat.adresa">
+            </div>
+            <div class="form-row">
+                <label>Квадратура објекта : </label>
+                <input type="text" name="kvadratura" [(ngModel)]="objekat.kvadratura">
+            </div>
+            <div class="form-row">
+                <label>Број просторија у објекту : </label>
+                <input type="text" name="prostorije" [(ngModel)]="objekat.brojProstorija">
+            </div>
+            <div class="form-row">
+                <button type="submit" name="okSet" (click)="okSet()">ОК</button>
+            </div>
+        </div>
+        <div style="height: 10px;"></div>
+        <div class="wrapper" style="width: 410px; height: 220px;">
+            <h2 class="form-row2">Додај скицу из фајла : </h2>
+            <div class="form-row">
+                <input type="file" id="myFile" name="filename" (change)="onFileChanged($event)">
+            </div>
+            <div class="form-row">
+                <button type="submit" name="dodajObjekatIzFajla" (click)="dodajObjekat()">Додај објекат из JSON фајла</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="right">
+        <div class="wrapper" style="width: 400px; ">
+            <div class="form-row">
+                <label for="html">Цртање просторија</label>
+                <input type="radio" id="prostorije" name="crtanjeCega" value="1" [(ngModel)]="mode">
+                <div style="width: 30px; height: 20px;"></div>
+                <label for="css">Цртање врата</label>
+                <input type="radio" id="vrata" name="crtanjeCega" value="2" [(ngModel)]="mode">
+                
+            </div>
+            <div *ngIf="mode == 1">
+                <div class="form-row">
+                    <label>Дужина просторије : </label>
+                    <input class="form-row" type="text" name="duzina" [(ngModel)]="duzina">
+                </div>
+                <div class="form-row">
+                    <label>Ширина просторије : </label>
+                    <input class="form-row" type="text" name="sirina" [(ngModel)]="sirina">
+                </div>
+            </div>
+            <div *ngIf="mode == 2">
+                <div class="form-row">
+                    <label>Ширина врата : </label>
+                    <input class="form-row" type="text" name="sirina" [(ngModel)]="sirinaVrata">
+                </div>
+                <label class="form-row">Оријентација врата :</label>
+                <div class="form-row">
+                    <label for="html">Север</label>
+                    <input type="radio" id="orijentacija" name="crtanjeVrata" value="1" [(ngModel)]="orijentacija">
+                    <div style="width: 30px; height: 20px;"></div>
+                    <label for="css">Југ</label>
+                    <input type="radio" id="orijentacija" name="crtanjeVrata" value="2" [(ngModel)]="orijentacija">
+                    <div style="width: 30px; height: 20px;"></div>
+                    <label for="html">Исток</label>
+                    <input type="radio" id="orijentacija" name="crtanjeVrata" value="3" [(ngModel)]="orijentacija">
+                    <div style="width: 30px; height: 20px;"></div>
+                    <label for="css">Запад</label>
+                    <input type="radio" id="orijentacija" name="crtanjeVrata" value="4" [(ngModel)]="orijentacija">
+                    
+                </div>
+            </div>
+            <div class="form-row">
+                <button type="submit" name="obrisiCanvas" (click)="obrisiCanvas()">Обриши скицу</button>
+            </div>
+        </div>
+        <div style="height: 10px;"></div>
+        <div>
+            <canvas #canvas height="400" width="400" style="background-color: wheat; border-style: solid;"></canvas>
+        </div>
+        <div class="form-row">
+            <button type="submit" name="dodajObjekatCanvas" (click)="dodajObjekat()">Додај објекат</button>
+        </div>
+        <div class="form-row">
+            <label>{{message}}</label>
+        </div>
+    </div>
+</div>
+
+
+
+
+{{ok}}
+
+
+
+

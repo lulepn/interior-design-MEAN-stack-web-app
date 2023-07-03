@@ -1,0 +1,59 @@
+<div class="wrapper">
+    <h2 class="form-row">Агенција {{agencija.naziv}} </h2>
+    <hr>
+    <div class="container">
+        <div class="left">
+            <label class="form-row" style="font-size: 25px;">Назив агенције : {{agencija.naziv}}</label> 
+            <label class="form-row">И-мејл : {{agencija.email}}</label>
+            <label class="form-row">Контакт телефон : {{agencija.telefon}}</label>
+            <label class="form-row">Адреса : {{agencija.adresa}}</label>
+            <label class="form-row" style="width: 250px;">Опис : <br> {{agencija.opis}}</label>
+        </div>
+        <div>
+            <img style="border-width: 5px; border-style: ridge; border-color: black;" 
+            [src]="sanitize('data:image/jpg;base64, ' + agencija.imageSrc)" width="200" height="200">
+            <div class="form-row" >
+                <button (click)="goBack()">Назад на преглед агенција</button>
+            </div>
+            <div *ngIf="mode == 'ulogovan'" class="form-row">
+                <button class="mojButton" (click)="zahtevZaSaradnju()" >Затражи сарадњу</button>
+            </div>
+        </div>
+        <div style="padding-left: 20px;padding-right: 10px;">
+            <table>
+                <label style="font-weight: bolder;font-size: large;">Рецензије :</label>
+                <tr>
+                    <th *ngIf="mode=='ulogovan'">Клијент</th>
+                    <th>Коментар</th>
+                    <th>Оцена</th>
+                </tr>
+                <tr *ngFor="let n of agencija.recenzije">
+                    <td *ngIf="mode=='ulogovan'">{{n.klijent}}</td>
+                    <td>{{n.komentar}}</td>
+                    <td>{{n.ocena}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div *ngIf="zahtevano == 1">
+        <hr>
+        <div class="form-row">
+            <input type="text" placeholder="Датум почетка радова" [(ngModel)]="datumO">
+            <input type="text" placeholder="Датум завршетка радова" [(ngModel)]="datumD">
+        </div>
+        <div class="form-row">
+            <select class="mojSelect1" name="sortiranje" id="sortiranje" [(ngModel)]="zahtev.adresaObj" >
+                <option *ngFor="let n of objekti" value={{n.adresa}}>{{n.adresa}}</option>
+            </select>
+            <button class="mojButton" (click)="posaljiZahtev()">Пошаљи захтев</button>
+        </div>
+        <div class="form-row">
+            <label>{{message}}</label>
+        </div>
+    </div>
+    
+</div> 
+<div>
+
+</div>
